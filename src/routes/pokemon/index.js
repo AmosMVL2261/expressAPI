@@ -43,4 +43,19 @@ pokemonRouter.get('/:numDex', async (req, res) => {
     }
 });
 
+// { "id": 6, "numDex": 494, "name": "Victini", "type1": "Psychic", "type2": "Fire" }
+// { "id": 7, "numDex": 495, "name": "Snivy", "type1": "Grass", "type2": null }
+pokemonRouter.post('/', async (req, res) => {
+    // 6.1.1: Leer la request
+    const newEntry = req.body;
+    try {
+        // 6.1.2: Acceder a la capa service para tener una respuesta
+        await pokemonService.createEntry(newEntry);
+        res.status(201).send();
+    } catch(error) {
+        // 6.1.3: Si hay un error al acceder al services respondemos un error generico
+        res.status(500).send( { message: 'intenten más tarde' } );
+    }
+});
+
 module.exports = pokemonRouter;
