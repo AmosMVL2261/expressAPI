@@ -15,8 +15,6 @@ const pokemonService = new pokemonServices();
 */
 
 // Query Params: Filtrar información
-// %20 => espacio en blanco
-// %22 => comillas dobles
 pokemonRouter.get('/', async (req, res) => {
     // 6.1.1: Leer la request
     const { price } = req.query;
@@ -61,10 +59,22 @@ pokemonRouter.post('/', async (req, res) => {
 pokemonRouter.patch('/:id', async (req, res) => {
     const body = req.body;
     const { id } = req.params;
-    console.log('route', id)
     try {
         await pokemonService.editPartial(id, body);
         res.status(200).send( { message: 'modificacion patch exitosa!', id } );
+    } catch(error) {
+        console.log(error);
+        res.status(404).send({ message: 'ese id no existe', error: error.message } );
+    }
+});
+
+// PARTIAL EDITION: PUT
+pokemonRouter.put('/:id', async (req, res) => {
+    const body = req.body;
+    const { id } = req.params;
+    try {
+        await pokemonService.editComplete(id, body);
+        res.status(200).send( { message: 'modificacion put exitosa!', id } );
     } catch(error) {
         console.log(error);
         res.status(404).send({ message: 'ese id no existe', error: error.message } );

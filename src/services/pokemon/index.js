@@ -63,7 +63,6 @@ class Pokemon {
     }
 
     editPartial(id, body) {
-        console.log('service', id)
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 const indexFounded = this.pokedex.findIndex(pokemon => pokemon.id === parseInt(id));
@@ -81,6 +80,26 @@ class Pokemon {
             }, 1000);
         });
     }
+
+    editComplete(id, body) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const indexFounded = this.pokedex.findIndex(pokemon => pokemon.id === parseInt(id));
+                if (indexFounded !== -1) {
+                    let pokedexCopy = [ ...this.pokedex ];
+                    const newBody = this.pokedex[indexFounded];
+                    pokedexCopy[indexFounded] = { ...newBody, ...body };
+                    this.pokedex = [ ...pokedexCopy ];
+                    resolve();
+                }else{
+                    reject(new Error("Pokemon no encontrado"));
+                    //reject( { message: "Pokemon no encontrado"} );
+                }
+
+            }, 1000);
+        });
+    }
+
 
 }
 
