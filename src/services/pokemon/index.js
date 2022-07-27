@@ -46,10 +46,29 @@ class Pokemon {
                     resolve(pokemon[0]);
                 //Si el pokemon tiene mas de una forma, regresa un arreglo con todas las formas del pokemon
                 }else if(pokemon.length>1){
-                    resolve(pokemon)
+                    resolve(pokemon);
                 }else{
-                    reject( { message: "Pokemon no encontrado"} )
+                    reject( { message: "Pokemon no encontrado"} );
                 }
+            }, 1000);
+        });
+    }
+
+    editPartial(id, body) {
+        console.log('service', id)
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const indexFounded = this.pokedex.findIndex(pokemon => pokemon.id === parseInt(id));
+                if (indexFounded !== -1) {
+                    let pokedexCopy = [ ...this.pokedex ];
+                    const newBody = this.pokedex[indexFounded];
+                    pokedexCopy[indexFounded] = { ...newBody, ...body };
+                    this.pokedex = [ ...pokedexCopy ];
+                    resolve();
+                }else{
+                    reject( { message: "Pokemon no encontrado"} );
+                }
+
             }, 1000);
         });
     }

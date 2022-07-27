@@ -58,4 +58,18 @@ pokemonRouter.post('/', async (req, res) => {
     }
 });
 
+// PARTIAL EDITION: PATCH
+pokemonRouter.patch('/:id', async (req, res) => {
+    const body = req.body;
+    const { id } = req.params;
+    console.log('route', id)
+    try {
+        await pokemonService.editPartial(id, body);
+        res.status(200).send( { message: 'modificacion patch exitosa!', id } );
+    } catch(error) {
+        console.log(error);
+        res.status(404).send({ message: 'ese id no existe' } );
+    }
+});
+
 module.exports = pokemonRouter;
