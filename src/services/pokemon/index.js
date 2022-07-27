@@ -100,6 +100,21 @@ class Pokemon {
         });
     }
 
+    delete(id) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const indexFounded = this.pokedex.findIndex(pokemon => pokemon.id === parseInt(id));
+                if (indexFounded !== -1) {
+                    const pokedexCopy = [ ...this.pokedex ];
+                    pokedexCopy.splice(indexFounded, 1);
+                    this.pokedex = [ ...pokedexCopy ];
+                    resolve();
+                }else{
+                    reject(new Error("Pokemon no encontrado"));
+                }
+            }, 1000);
+        });
+    }
 
 }
 

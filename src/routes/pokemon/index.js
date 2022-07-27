@@ -81,4 +81,15 @@ pokemonRouter.put('/:id', async (req, res) => {
     }
 });
 
+// DELETE: DELETE
+pokemonRouter.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        await pokemonService.delete(id);
+        res.status(200).send( { message: 'eliminacion exitosa!' } );
+    } catch (error){
+        res.status(404).send({ message: 'ese id no existe', error: error.message } );
+    }
+});
+
 module.exports = pokemonRouter;
