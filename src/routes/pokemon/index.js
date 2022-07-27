@@ -12,8 +12,14 @@ const pokemonService = new pokemonServices();
 * http://localhost:3000/pokemon
 * http://localhost:3000/pokemon/491
 * http://localhost:3000/pokemon/?numDex=2&name="Darkrai"&type1="Dark"
+*
+* Objetos de prueba para el verbo PUT
+* { "id": 6, "numDex": 494, "name": "Victini", "type1": "Psychic", "type2": "Fire" }
+* { "id": 7, "numDex": 495, "name": "Snivy", "type1": "Grass", "type2": null }
 */
 
+
+// Obtener todos los pokemon: GET 
 // Query Params: Filtrar información
 pokemonRouter.get('/', async (req, res) => {
     // 6.1.1: Leer la request
@@ -29,6 +35,7 @@ pokemonRouter.get('/', async (req, res) => {
     
 });
 
+// Obtener un pokemon: GET 
 // Request Param: Son utilizados para ejecutar operaciones sobre un elemento especifico
 pokemonRouter.get('/:numDex', async (req, res) => {
     const { numDex } = req.params;
@@ -40,17 +47,13 @@ pokemonRouter.get('/:numDex', async (req, res) => {
     }
 });
 
-// { "id": 6, "numDex": 494, "name": "Victini", "type1": "Psychic", "type2": "Fire" }
-// { "id": 7, "numDex": 495, "name": "Snivy", "type1": "Grass", "type2": null }
+// Agregar un pokemon: POST
 pokemonRouter.post('/', async (req, res) => {
-    // 6.1.1: Leer la request
     const newEntry = req.body;
     try {
-        // 6.1.2: Acceder a la capa service para tener una respuesta
         await pokemonService.createEntry(newEntry);
         res.status(201).send();
     } catch(error) {
-        // 6.1.3: Si hay un error al acceder al services respondemos un error generico
         res.status(500).send( { message: 'intenten más tarde', error: error.message } );
     }
 });
@@ -63,7 +66,6 @@ pokemonRouter.patch('/:id', async (req, res) => {
         await pokemonService.editPartial(id, body);
         res.status(200).send( { message: 'modificacion patch exitosa!', id } );
     } catch(error) {
-        console.log(error);
         res.status(404).send({ message: 'ese id no existe', error: error.message } );
     }
 });
@@ -76,7 +78,6 @@ pokemonRouter.put('/:id', async (req, res) => {
         await pokemonService.editComplete(id, body);
         res.status(200).send( { message: 'modificacion put exitosa!', id } );
     } catch(error) {
-        console.log(error);
         res.status(404).send({ message: 'ese id no existe', error: error.message } );
     }
 });
@@ -92,4 +93,6 @@ pokemonRouter.delete('/:id', async (req, res) => {
     }
 });
 
+
+//Exportamos los verbos como un modulo
 module.exports = pokemonRouter;

@@ -20,13 +20,14 @@ class Pokemon {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 const indexFounded = this.pokedex.findIndex(pokemon => pokemon.id === parseInt(newEntry.id));
+                // 6.1.5 Logica de negocio
                 if (indexFounded === -1){
-                    // 6.1.5 Logica de negocio
-                    this.pokedex.push(newEntry);
                     // 6.1.6 En caso de exito usar resolve();
+                    this.pokedex.push(newEntry);
                     resolve();
                 }else{
-                    reject(new Error("El ID del Pokemon no es posible ocuparlo"));
+                    // 6.1.6 En caso de fracaso por no poder agregar el pokemon usar reject() con el mensaje respectivos;
+                    reject(new Error("El ID del Pokemon no es posible ocuparlo de nuevo"));
                     //reject( { message: "El ID del Pokemon no es posible ocuparlo"} );
                 }
 
@@ -37,7 +38,8 @@ class Pokemon {
     findAll() {
         // 6.1.4: Se simula una promesa (new Promise) y una operacion asincrona (setTimeout = base de datos)
         return new Promise((resolve, reject) => {
-            setTimeout(() => {                
+            setTimeout(() => {       
+                // 6.1.5 En caso de exito usar resolve();         
                 resolve(this.pokedex);
             }, 1000);
         });
@@ -56,7 +58,6 @@ class Pokemon {
                     resolve(pokemon);
                 }else{
                     reject(new Error("Pokemon no encontrado"));
-                    //reject( { message: "Pokemon no encontrado"} );
                 }
             }, 1000);
         });
@@ -74,7 +75,6 @@ class Pokemon {
                     resolve();
                 }else{
                     reject(new Error("Pokemon no encontrado"));
-                    //reject( { message: "Pokemon no encontrado"} );
                 }
 
             }, 1000);
@@ -93,7 +93,6 @@ class Pokemon {
                     resolve();
                 }else{
                     reject(new Error("Pokemon no encontrado"));
-                    //reject( { message: "Pokemon no encontrado"} );
                 }
 
             }, 1000);
@@ -118,4 +117,5 @@ class Pokemon {
 
 }
 
+//Exportamos la clase como un modulo
 module.exports = Pokemon;

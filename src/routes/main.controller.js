@@ -7,4 +7,5 @@ const routerApi = (app) => {
     // router.use('/customers', customersRouter);
 };
 
+//Exportamos el controller como un modulo
 module.exports = routerApi;
