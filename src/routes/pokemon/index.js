@@ -36,10 +36,9 @@ pokemonRouter.get('/:numDex', async (req, res) => {
     const { numDex } = req.params;
     try {
         const foundedPokemon = await pokemonService.findOne(numDex);
-        console.log(foundedPokemon);
         res.status(200).send( { message: 'encontrado!', foundedPokemon } );
     } catch {
-        res.status(404).send({ message: 'ese id no existe' } );
+        res.status(404).send({ message: 'ese id no existe', error: error.message } );
     }
 });
 
@@ -54,7 +53,7 @@ pokemonRouter.post('/', async (req, res) => {
         res.status(201).send();
     } catch(error) {
         // 6.1.3: Si hay un error al acceder al services respondemos un error generico
-        res.status(500).send( { message: 'intenten más tarde' } );
+        res.status(500).send( { message: 'intenten más tarde', error: error.message } );
     }
 });
 
@@ -68,7 +67,7 @@ pokemonRouter.patch('/:id', async (req, res) => {
         res.status(200).send( { message: 'modificacion patch exitosa!', id } );
     } catch(error) {
         console.log(error);
-        res.status(404).send({ message: 'ese id no existe' } );
+        res.status(404).send({ message: 'ese id no existe', error: error.message } );
     }
 });
 

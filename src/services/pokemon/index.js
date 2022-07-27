@@ -19,10 +19,17 @@ class Pokemon {
         // 6.1.4: Se simula una promesa (new Promise) y una operacion asincrona (setTimeout = base de datos)
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                // 6.1.5 Logica de negocio
-                this.pokedex.push(newEntry);
-                // 6.1.6 En caso de exito usar resolve();
-                resolve();
+                const indexFounded = this.pokedex.findIndex(pokemon => pokemon.id === parseInt(newEntry.id));
+                if (indexFounded === -1){
+                    // 6.1.5 Logica de negocio
+                    this.pokedex.push(newEntry);
+                    // 6.1.6 En caso de exito usar resolve();
+                    resolve();
+                }else{
+                    reject(new Error("El ID del Pokemon no es posible ocuparlo"));
+                    //reject( { message: "El ID del Pokemon no es posible ocuparlo"} );
+                }
+
             }, 1000);
         });
     }
@@ -48,7 +55,8 @@ class Pokemon {
                 }else if(pokemon.length>1){
                     resolve(pokemon);
                 }else{
-                    reject( { message: "Pokemon no encontrado"} );
+                    reject(new Error("Pokemon no encontrado"));
+                    //reject( { message: "Pokemon no encontrado"} );
                 }
             }, 1000);
         });
@@ -66,7 +74,8 @@ class Pokemon {
                     this.pokedex = [ ...pokedexCopy ];
                     resolve();
                 }else{
-                    reject( { message: "Pokemon no encontrado"} );
+                    reject(new Error("Pokemon no encontrado"));
+                    //reject( { message: "Pokemon no encontrado"} );
                 }
 
             }, 1000);
