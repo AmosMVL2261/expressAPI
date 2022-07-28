@@ -117,5 +117,5 @@ class Pokemon {
 
 }
 
-//Exportamos la clase como un modulo
+//Exportamos los verbos como un modulo
 module.exports = Pokemon;

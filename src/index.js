@@ -2,7 +2,7 @@
 const express = require('express');
 // 2 Declaración de variables para levantar el servidor
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 // 3 Obtener los routes
 const routerApi = require('./routes/main.controller');
 // 4 Agregar middleware para uso de req.body
