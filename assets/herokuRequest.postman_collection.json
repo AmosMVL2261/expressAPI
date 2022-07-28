@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "d35799cf-0404-45fe-aef1-f314aeb41c7e",
+		"name": "herokuRequest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22124087"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://glacial-shelf-48885.herokuapp.com/pokemon/",
+					"protocol": "https",
+					"host": [
+						"glacial-shelf-48885",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://glacial-shelf-48885.herokuapp.com/pokemon/491",
+					"protocol": "https",
+					"host": [
+						"glacial-shelf-48885",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pokemon",
+						"491"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"numDex\": 494,\r\n    \"name\": \"Victini\",\r\n    \"type1\": \"Psychic\",\r\n    \"type2\": \"Fire\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://glacial-shelf-48885.herokuapp.com/pokemon/",
+					"protocol": "https",
+					"host": [
+						"glacial-shelf-48885",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 7,\r\n    \"numDex\": 495,\r\n    \"name\": \"Snivy\",\r\n    \"type1\": \"Grass\",\r\n    \"type2\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://glacial-shelf-48885.herokuapp.com/pokemon/",
+					"protocol": "https",
+					"host": [
+						"glacial-shelf-48885",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pokemon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partialEdition",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numDex\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://glacial-shelf-48885.herokuapp.com/pokemon/5",
+					"protocol": "https",
+					"host": [
+						"glacial-shelf-48885",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pokemon",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "completeEdition",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numDex\": 494,\r\n    \"name\": \"Victini\",\r\n    \"type1\": \"Psychic\",\r\n    \"type2\": \"Fire\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://glacial-shelf-48885.herokuapp.com/pokemon/5",
+					"protocol": "https",
+					"host": [
+						"glacial-shelf-48885",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"pokemon",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pokemon/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemon",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
