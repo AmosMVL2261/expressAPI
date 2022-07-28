@@ -42,7 +42,7 @@ pokemonRouter.get('/:numDex', async (req, res) => {
     try {
         const foundedPokemon = await pokemonService.findOne(numDex);
         res.status(200).send( { message: 'encontrado!', foundedPokemon } );
-    } catch {
+    } catch (error){
         res.status(404).send({ message: 'ese id no existe', error: error.message } );
     }
 });

@@ -147,7 +147,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/pokemon/5",
+					"raw": "http://localhost:3000/pokemon/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -155,14 +155,14 @@
 					"port": "3000",
 					"path": [
 						"pokemon",
-						"5"
+						"2"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "completeEdition Copy",
+			"name": "delete",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -176,7 +176,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/pokemon/5",
+					"raw": "http://localhost:3000/pokemon/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -184,7 +184,7 @@
 					"port": "3000",
 					"path": [
 						"pokemon",
-						"5"
+						"2"
 					]
 				}
 			},
