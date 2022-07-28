@@ -6,11 +6,20 @@ class Pokemon {
 
     generatePokemon(){
         this.pokedex = [
-            //{ id: 1, numberDex: 1, name: "", type1: "", type2: "" },
-            { id: 2, numDex: 491, name: "Darkrai", type1: "Dark", type2: null },
-            { id: 3, numDex: 492, name: "Shaymin", type1: "Grass", type2: null },
-            { id: 4, numDex: 492, name: "Shaymin", type1: "Grass", type2: "Flying" },
-            { id: 5, numDex: 493, name: "Arceus", type1: "Normal", type2: null },
+            //{ id: 1, numDex: 1, name: "", type1: "", type2: "" },
+            { id: 1, numDex: 387, name: "Turtwig", type1: "Grass", type2: null },
+            { id: 2, numDex: 388, name: "Grotle", type1: "Grass", type2: null },
+            { id: 3, numDex: 389, name: "Torterra", type1: "Grass", type2: "Ground" },
+            { id: 4, numDex: 390, name: "Chimchar", type1: "Fire", type2: null },
+            { id: 5, numDex: 391, name: "Monferno", type1: "Fire", type2: "Fighting" },
+            { id: 6, numDex: 392, name: "Infernape", type1: "Fire", type2: "Fighting" },
+            { id: 7, numDex: 393, name: "Piplup", type1: "Water", type2: null },
+            { id: 8, numDex: 394, name: "Prinplup", type1: "Water", type2: null },
+            { id: 9, numDex: 395, name: "Empoleon", type1: "Water", type2: "Steel" },
+            { id: 10, numDex: 491, name: "Darkrai", type1: "Dark", type2: null },
+            { id: 11, numDex: 492, name: "Shaymin", type1: "Grass", type2: null },
+            { id: 12, numDex: 492, name: "Shaymin", type1: "Grass", type2: "Flying" },
+            { id: 13, numDex: 493, name: "Arceus", type1: "Normal", type2: null },
         ]
     }
 
