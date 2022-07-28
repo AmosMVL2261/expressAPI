@@ -7,6 +7,11 @@ const port = process.env.PORT || 3000;
 const routerApi = require('./routes/main.controller');
 // 4 Agregar middleware para uso de req.body
 app.use(express.json());
+//Root endpoint
+app.get("/",(req,res)=>{
+    res.send("Pokemon API by AmosMVL2261");
+})
+
 // 5 Levantar el servidor
 app.listen(port, () => {
     console.log('Servidor express listening...');
